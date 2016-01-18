@@ -7,11 +7,14 @@ delay(0.5)
 SystemEvents.keystroke('3', using: 'command down')
 delay(0.5)
 
+upArrow = 126
+# Umm why the fuck doesn't this work? It works in the gui...
+# SystemEvents.keystroke(upArrow, using: ['control down', 'option down'])
+#
 # OMG this is gross, but right now I can't figure out
 # any other way to select the most recently sent message :(
 # Maybe we can look it up via the Mail api (see notes below)
 # and then use SystemEvents to select it?
-upArrow = 126
 SystemEvents.keyCode(upArrow) for i in [0..100]
 delay(0.5)
 

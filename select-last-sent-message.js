@@ -1,5 +1,5 @@
 (function() {
-  var Mail, SystemEvents, messageViewer, recipient, selectedMessage;
+  var Mail, SystemEvents, leftArrow, upArrow;
 
   SystemEvents = Application('System Events');
 
@@ -9,12 +9,40 @@
 
   delay(0.5);
 
-  messageViewer = Mail.MessageViewer;
+  SystemEvents.keystroke('3', {
+    using: 'command down'
+  });
 
-  selectedMessage = messageViewer.selectedMessages[0];
+  delay(0.5);
 
-  recipient = selectedMessage.recipients[0];
+  upArrow = 126;
 
-  console.log(name);
+  SystemEvents.keystroke(upArrow, {
+    using: ['control down', 'option down']
+  });
+
+  delay(0.5);
+
+  SystemEvents.keystroke('k', {
+    using: ['control down', 'option down', 'command down']
+  });
+
+  delay(0.5);
+
+  leftArrow = 123;
+
+  SystemEvents.keyCode(leftArrow);
+
+  delay(0.5);
+
+  SystemEvents.keystroke(';');
+
+  SystemEvents.keystroke('f');
+
+  SystemEvents.keystroke('u');
+
+  SystemEvents.keystroke('w');
+
+  SystemEvents.keystroke(' ');
 
 }).call(this);
