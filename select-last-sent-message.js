@@ -1,12 +1,20 @@
 (function() {
-  var Mail, sent;
+  var Mail, SystemEvents, messageViewer, recipient, selectedMessage;
+
+  SystemEvents = Application('System Events');
 
   Mail = Application('Mail');
 
-  sent = Mail.sentMailbox;
+  Mail.activate();
 
-  console.log(sent.messages.first.subject());
+  delay(0.5);
 
-  console.log(sent.messages.first.open());
+  messageViewer = Mail.MessageViewer;
+
+  selectedMessage = messageViewer.selectedMessages[0];
+
+  recipient = selectedMessage.recipients[0];
+
+  console.log(name);
 
 }).call(this);
