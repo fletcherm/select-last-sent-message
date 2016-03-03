@@ -1,5 +1,9 @@
 (function() {
-  var Mail, SystemEvents, leftArrow, upArrow;
+  var Mail, SystemEvents, i, j, upArrow, wait;
+
+  wait = function() {
+    return delay(0.1);
+  };
 
   SystemEvents = Application('System Events');
 
@@ -7,42 +11,30 @@
 
   Mail.activate();
 
-  delay(0.5);
+  wait();
 
   SystemEvents.keystroke('3', {
     using: 'command down'
   });
 
-  delay(0.5);
+  wait();
 
-  upArrow = 126;
+  upArrow = '126';
 
   SystemEvents.keystroke(upArrow, {
     using: ['control down', 'option down']
   });
 
-  delay(0.5);
+  for (i = j = 0; j <= 100; i = ++j) {
+    SystemEvents.keyCode(upArrow);
+  }
+
+  wait();
 
   SystemEvents.keystroke('k', {
     using: ['control down', 'option down', 'command down']
   });
 
-  delay(0.5);
-
-  leftArrow = 123;
-
-  SystemEvents.keyCode(leftArrow);
-
-  delay(0.5);
-
-  SystemEvents.keystroke(';');
-
-  SystemEvents.keystroke('f');
-
-  SystemEvents.keystroke('u');
-
-  SystemEvents.keystroke('w');
-
-  SystemEvents.keystroke(' ');
+  wait();
 
 }).call(this);

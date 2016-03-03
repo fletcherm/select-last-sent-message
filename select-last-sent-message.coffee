@@ -1,36 +1,34 @@
+wait = -> delay(0.1)
+
 SystemEvents = Application('System Events')
 Mail = Application('Mail')
 
 Mail.activate()
-delay(0.5)
+wait()
 
 SystemEvents.keystroke('3', using: 'command down')
-delay(0.5)
+wait()
 
-upArrow = 126
+upArrow = '126'
 # Umm why the fuck doesn't this work? It works in the gui...
-# SystemEvents.keystroke(upArrow, using: ['control down', 'option down'])
-#
-# OMG this is gross, but right now I can't figure out
-# any other way to select the most recently sent message :(
-# Maybe we can look it up via the Mail api (see notes below)
-# and then use SystemEvents to select it?
+SystemEvents.keystroke(upArrow, using: ['control down', 'option down'])
+# let's brute force instead
 SystemEvents.keyCode(upArrow) for i in [0..100]
-delay(0.5)
+wait()
 
 SystemEvents.keystroke('k', using: ['control down', 'option down', 'command down' ])
-delay(0.5)
-
-leftArrow = 123
-SystemEvents.keyCode(leftArrow)
-delay(0.5)
-
-# Brute force; may be better to invoke TextExpander directly
-SystemEvents.keystroke(';')
-SystemEvents.keystroke('f')
-SystemEvents.keystroke('u')
-SystemEvents.keystroke('w')
-SystemEvents.keystroke(' ')
+wait()
+#
+# leftArrow = 123
+# SystemEvents.keyCode(leftArrow)
+# delay(0.5)
+#
+# # Brute force; may be better to invoke TextExpander directly
+# SystemEvents.keystroke(';')
+# SystemEvents.keystroke('f')
+# SystemEvents.keystroke('u')
+# SystemEvents.keystroke('w')
+# SystemEvents.keystroke(' ')
 
 # Next steps - 
 # Look at first recipient of the message
